@@ -9,7 +9,10 @@ This is the user interface for **The Overlook Restaurant**, a modern web applica
 - **Routing:** React Router DOM
 - **HTTP Client:** Axios
 
-## 🚀 Getting Started
+## � Related Repositories
+- **Backend:** [restaurantManagementSystem-backend](https://github.com/sxh8fx/restaurantManagementSystem-backend)
+
+## �🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v18+)
