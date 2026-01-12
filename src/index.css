@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  --background: #0f0f11;
+  --surface: #18181b;
+  --surface-highlight: #27272a;
+
+  --primary: #ffffff;
+  --primary-dim: #a1a1aa;
+
+  --accent: #3b82f6;
+  /* Blue-500 */
+  --success: #22c55e;
+  /* Green-500 */
+  --warning: #eab308;
+  /* Yellow-500 */
+  --error: #ef4444;
+  /* Red-500 */
+}
+
+[data-theme='light'] {
+  /* Calibrated Light Mode Palette (Zinc/Clean) */
+  --background: #fafafa;
+  --surface: #ffffff;
+  --surface-highlight: #f4f4f5;
+
+  --primary: #18181b;
+  --primary-dim: #52525b;
+
+  /* Clear "White Glass" with stronger definition for light mode */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(24, 24, 27, 0.08);
+  /* Slight dark border for crispness */
+
+  --text-gradient-start: #09090b;
+  --text-gradient-end: #3f3f46;
+
+  /* Shadow for depth in light mode */
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+:root {
+  /* Default Dark Mode additions */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-gradient-start: #ffffff;
+  --text-gradient-end: #e0e0e0;
+
+  /* Subtle shadow for dark mode */
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Global Button Styles to replace default HTML buttons */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-display);
+  transition: all 0.2s ease;
+}
+
+/* Primary Action Button */
+.primary-btn {
+  background: white;
+  color: black;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.1s ease, background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #f4f4f5;
+  transform: translateY(-1px);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+/* Secondary/Ghost Button */
+.secondary-btn {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Form Inputs */
+input,
+select,
+textarea {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 6px;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Fix for invisible dropdown text */
+option {
+  background-color: #18181b;
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Alert Styles */
+.alert-error {
+  background-color: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.alert-success {
+  background-color: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.5);
+  color: #86efac;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.alert-info {
+  background-color: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #93c5fd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Global Page Title Style (Consistent with Dashboard Hero) */
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  /* Slightly smaller than 3.5rem purely for general pages, or keep 3.5rem */
+  font-weight: 700;
+  color: white;
+  margin-top: 2rem;
+  /* Large spacing from top/navbar */
+  margin-bottom: 3rem;
+  text-align: center;
+  line-height: 1.1;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .page-hero-title {
+    font-size: 2.5rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+}
